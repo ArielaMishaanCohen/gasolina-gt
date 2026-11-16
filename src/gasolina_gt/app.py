@@ -6,6 +6,8 @@
   GET /precios            histórico semanal con filtros (combustible, desde, hasta, limit, offset)
   GET /prediccion         predicción de la semana siguiente (?combustible=super opcional)
   GET /modelo/metricas    exactitud del modelo y de la línea base
+  GET /modelo/backtest    predicción vs. realidad en las semanas de prueba
+  GET /fotos              lo que leyó el OCR en cada foto, contra el precio real
   GET /docs               Swagger (FastAPI)
 """
 
@@ -22,9 +24,10 @@ from typing import Literal
 import pandas as pd
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
 from gasolina_gt import __version__
-from gasolina_gt.oro import FECHA_INSTANTANEA, LectorOro
+from gasolina_gt.oro import DATOS_DIR, FECHA_INSTANTANEA, LectorOro, cargar_json
 
 log = logging.getLogger("gasolina.api")
 STATIC = Path(__file__).parent / "static"
@@ -95,6 +98,9 @@ def crear_app() -> FastAPI:
             log.info("%s %s %s %.1f ms", request.url.path, request.url.query or "-",
                      resp.status_code, (time.perf_counter() - t0) * 1000)
         return resp
+
+    if (DATOS_DIR / "img").is_dir():
+        app.mount("/media", StaticFiles(directory=DATOS_DIR / "img"), name="media")
 
     # ---------------------------------------------------------------- endpoints
     @app.get("/", include_in_schema=False)
@@ -200,6 +206,33 @@ def crear_app() -> FastAPI:
             df = df[df["es_champion"].astype(bool)]
         fila = df.sort_values("fecha_entrenamiento").iloc[-1].to_dict()
         return {k: _limpio(v) for k, v in fila.items()}
+
+    @app.get("/modelo/backtest", summary="Predicción contra la realidad en las semanas de prueba")
+    def modelo_backtest():
+        filas = cargar_json("backtest.json")
+        if not filas:
+            raise HTTPException(404, "No hay resultados de la prueba temporal.")
+        n = len(filas)
+        return {
+            "semanas": sorted({f["semana"] for f in filas}),
+            "aciertos_modelo": sum(f["real"] == f["modelo"] for f in filas),
+            "aciertos_linea_base": sum(f["real"] == f["base"] for f in filas),
+            "total": n,
+            "detalle": filas,
+        }
+
+    @app.get("/fotos", summary="Lectura del OCR en cada foto frente al precio real")
+    def fotos(detalle: bool = Query(False, description="Incluir todas las detecciones del OCR")):
+        datos = cargar_json("fotos.json")
+        if not datos:
+            raise HTTPException(404, "No hay resultados del OCR.")
+        if not detalle:
+            datos = [{k: v for k, v in f.items() if k != "crudas"} for f in datos]
+        evaluados = [(f["leidos"].get(c), v) for f in datos for c, v in f["reales"].items()]
+        correctos = sum(1 for leido, real in evaluados
+                        if leido is not None and abs(leido - real) < 0.005)
+        return {"total_fotos": len(datos), "precios_etiquetados": len(evaluados),
+                "precios_correctos": correctos, "fotos": datos}
 
     return app
 

@@ -8,9 +8,11 @@ externos. La carpeta se puede cambiar con la variable ORO_DIR.
 
 from __future__ import annotations
 
+import json
 import os
 import threading
 from dataclasses import dataclass, field
+from functools import lru_cache
 from pathlib import Path
 
 import pandas as pd
@@ -22,8 +24,16 @@ TABLAS_ORO = (
     "predicciones",
     "metricas_modelo",
 )
-ORO_DIR = Path(os.environ.get("ORO_DIR") or Path(__file__).resolve().parents[2] / "data" / "oro")
+DATOS_DIR = Path(os.environ.get("DATOS_DIR") or Path(__file__).resolve().parents[2] / "data")
+ORO_DIR = DATOS_DIR / "oro"
 FECHA_INSTANTANEA = os.environ.get("FECHA_INSTANTANEA", "2026-11-15")
+
+
+@lru_cache(maxsize=None)
+def cargar_json(nombre: str) -> list:
+    """Archivos JSON de apoyo (resultados del OCR y de la prueba temporal)."""
+    ruta = DATOS_DIR / nombre
+    return json.loads(ruta.read_text(encoding="utf-8")) if ruta.is_file() else []
 
 
 @dataclass

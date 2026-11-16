@@ -36,3 +36,19 @@ def test_metricas_y_panel():
     j = cliente.get("/modelo/metricas").json()
     assert j["accuracy_modelo"] >= j["accuracy_baseline"]
     assert "Gasolina GT" in cliente.get("/").text
+
+
+def test_fotos_resume_la_exactitud_del_ocr():
+    j = cliente.get("/fotos").json()
+    assert j["total_fotos"] == len(j["fotos"]) > 0
+    assert 0 < j["precios_correctos"] <= j["precios_etiquetados"]
+    assert "crudas" not in j["fotos"][0]
+    primera = j["fotos"][0]["img"]
+    assert cliente.get(f"/media/{primera}").headers["content-type"] == "image/jpeg"
+
+
+def test_backtest_coincide_con_las_metricas():
+    j = cliente.get("/modelo/backtest").json()
+    m = cliente.get("/modelo/metricas").json()
+    assert j["total"] == len(j["detalle"])
+    assert round(j["aciertos_modelo"] / j["total"], 4) == round(m["accuracy_modelo"], 4)

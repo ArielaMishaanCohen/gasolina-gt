@@ -23,8 +23,17 @@ El sistema original corre como un pipeline medallón en Databricks:
 | **Orquestación** | Job de Databricks Bronce → Plata → Oro, programado cada martes, con alertas por correo |
 | **API** | FastAPI sobre la capa Oro, desplegada en un servidor Linux con `uv` |
 
+La página muestra, en español o en inglés (interruptor ES/EN o `?lang=en`):
+
+- **Así lee las fotos**: las 38 fotos con lo que detectó el OCR, el precio leído frente al
+  etiquetado a mano y las correcciones que aplicaron las reglas.
+- **Precio por semana**: la referencia del MEM frente a lo leído de las fotos.
+- **¿Acierta el modelo?**: la predicción de la semana siguiente y las 10 semanas de prueba,
+  casilla por casilla, contra la línea base.
+
 Esta versión sirve una **instantánea de las cinco tablas Oro** (exportada el 15 de noviembre
-de 2026) en `data/oro/*.parquet`, así que corre sola, sin credenciales ni servicios externos.
+de 2026) en `data/oro/*.parquet`, junto con los resultados del OCR (`data/fotos.json`, fotos reducidas y sin
+metadatos en `data/img/`) y de la prueba temporal (`data/backtest.json`), así que corre sola, sin credenciales ni servicios externos.
 
 **Resultado del modelo** (validación temporal, 10 semanas de prueba): accuracy 0.60 y F1 macro
 0.313, frente a 0.50 y 0.256 de la línea base que repite la dirección de la semana anterior.
@@ -39,6 +48,8 @@ de 2026) en `data/oro/*.parquet`, así que corre sola, sin credenciales ni servi
 | GET | `/precios?combustible=diesel&desde=2026-10-01&hasta=2026-11-30&limit=5` | Histórico con filtros y paginación |
 | GET | `/prediccion?combustible=super` | Dirección de la semana siguiente y su probabilidad |
 | GET | `/modelo/metricas` | Exactitud y F1 del modelo frente a la línea base |
+| GET | `/modelo/backtest` | Predicción contra la realidad en las 10 semanas de prueba |
+| GET | `/fotos?detalle=true` | Lo que leyó el OCR en cada foto (recuadros y precios) frente al precio real |
 | GET | `/docs` | Documentación interactiva (Swagger) |
 
 ## Correr en local
