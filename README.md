@@ -6,13 +6,18 @@ comparados con la referencia oficial del Ministerio de Energía y Minas (MEM), y
 de un modelo de clasificación sobre la dirección del precio la semana siguiente.
 
 **Demo en vivo:** https://gasolina-gt.onrender.com · [Swagger](https://gasolina-gt.onrender.com/docs)
+· [Repositorio del proyecto completo](https://github.com/ArielaMishaanCohen/equipo-06-gasolina-gt)
 (plan gratuito: la primera visita puede tardar ~50 s en despertar el servicio).
 
 ![Panel de Gasolina GT](docs/panel.png)
 
 ## Qué hay detrás
 
-Este repositorio es la versión de portafolio del proyecto final de *ML Engineering* (UVG, 2026).
+Este repositorio es la versión de portafolio del proyecto final de *ML Engineering* (UVG, 2026),
+hecha para servir la demo en Render. **El código completo del proyecto** (pipeline de Databricks,
+definición del Job, paquete de OCR y modelo, tests, CI/CD y documentación) está en
+[equipo-06-gasolina-gt](https://github.com/ArielaMishaanCohen/equipo-06-gasolina-gt).
+
 El sistema original corre como un pipeline medallón en Databricks:
 
 | Capa | Qué hace |
