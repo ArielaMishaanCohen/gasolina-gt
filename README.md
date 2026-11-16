@@ -5,6 +5,9 @@ semanales de súper, regular y diésel **leídos de fotos de rótulos de gasolin
 comparados con la referencia oficial del Ministerio de Energía y Minas (MEM), y la predicción
 de un modelo de clasificación sobre la dirección del precio la semana siguiente.
 
+**Demo en vivo:** https://gasolina-gt.onrender.com · [Swagger](https://gasolina-gt.onrender.com/docs)
+(plan gratuito: la primera visita puede tardar ~50 s en despertar el servicio).
+
 ![Panel de Gasolina GT](docs/panel.png)
 
 ## Qué hay detrás
