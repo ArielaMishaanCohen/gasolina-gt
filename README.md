@@ -23,7 +23,13 @@ El sistema original corre como un pipeline medallón en Databricks:
 | **Orquestación** | Job de Databricks Bronce → Plata → Oro, programado cada martes, con alertas por correo |
 | **API** | FastAPI sobre la capa Oro, desplegada en un servidor Linux con `uv` |
 
-La página muestra, en español o en inglés (interruptor ES/EN o `?lang=en`):
+La página, en español o en inglés (interruptor ES/EN o `?lang=en`), tiene dos pestañas:
+
+**Precios hoy**: responde *¿lleno el tanque hoy o espero?* para súper, regular o diésel, con la
+probabilidad del modelo, una calculadora de cuánto cuesta llenar (moto, carro, pickup o galones a
+mano) y cuánto ahorrarías esperando, los precios de la semana y la tendencia del combustible.
+
+**Cómo funciona**:
 
 - **Así lee las fotos**: las 38 fotos con lo que detectó el OCR, el precio leído frente al
   etiquetado a mano y las correcciones que aplicaron las reglas.

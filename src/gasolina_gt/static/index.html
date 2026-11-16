@@ -170,20 +170,91 @@ footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
 footer a{color:#cfe5dc}
 .toast{position:fixed;right:20px;bottom:20px;background:#10221f;color:#fff;padding:12px 16px;border-radius:10px;font-size:13px;z-index:60}
 .loading{color:var(--muted);font-size:13px;padding:30px;text-align:center;line-height:1.5}
-@media(max-width:1020px){.hero .wrap{grid-template-columns:1fr;gap:36px}.stage-card{margin:0 auto}.ocr,.model,.api{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}.step:after{display:none}.links{display:none}.lang{margin-left:auto}}
-@media(max-width:640px){.wrap{padding:0 16px}h1{font-size:33px;letter-spacing:-1px}.lede{font-size:15.5px}.kpis{gap:8px}.kpi{padding:10px}.kpi strong{font-size:19px}.kpi span{font-size:10.5px}.hero{padding:40px 0 48px}.prices,.summary{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.head h2{font-size:25px}.readout{grid-template-columns:1fr}.arrow{display:none}.chart{height:240px}.ep{grid-template-columns:auto 1fr}.ep .acts{grid-row:auto;grid-column:1/3}.top .wrap{gap:12px}.viewer .stage img{max-height:480px}}
+.tabs{display:flex;gap:4px;margin-left:auto}
+.tabs a{text-decoration:none;font-size:13.5px;font-weight:600;padding:8px 13px;border-radius:9px;color:#b8d2c8;white-space:nowrap}
+.tabs a:hover{color:#fff;background:#ffffff10}.tabs a[aria-current=page]{background:#ffffff1c;color:#fff}
+.subnav{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:62px;z-index:15}
+.subnav .wrap{display:flex;gap:4px;overflow-x:auto;padding-top:8px;padding-bottom:8px}
+.subnav a{text-decoration:none;font-size:13px;color:var(--muted);padding:6px 11px;border-radius:8px;white-space:nowrap}.subnav a:hover{background:#f0f4f3;color:var(--ink)}
+.home-top{background:radial-gradient(1000px 480px at 90% -20%,#1f4a43 0,transparent 60%),var(--nav);color:#e6f2ee;padding:52px 0 60px}
+.home-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:44px;align-items:start}
+.home-top h1{font-size:44px;margin-bottom:22px}
+.fuel-pick{display:inline-flex;background:#ffffff12;border-radius:12px;padding:4px;gap:4px;margin-bottom:22px}
+.fuel-pick button{border:0;background:transparent;color:#b9d3c9;padding:9px 16px;border-radius:9px;font-weight:650;font-size:14px;display:flex;align-items:center;gap:8px}
+.fuel-pick button i{width:9px;height:9px;border-radius:3px;background:var(--c)}
+.fuel-pick button[aria-checked=true]{background:#fff;color:var(--nav)}
+.answer{background:linear-gradient(150deg,#1d4a42,#163833);border:1px solid #91d9bb3a;border-radius:20px;padding:26px 28px}
+.answer .lab{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--mint);font-weight:700}
+.answer .big{font-size:40px;font-weight:750;letter-spacing:-1.2px;color:#fff;margin:6px 0 6px;display:flex;align-items:center;gap:12px}
+.answer .big .ic{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;font-size:24px}
+.answer .big .ic.wait{background:#91d9bb26;color:var(--mint)}.answer .big .ic.fill{background:#f2b8a826;color:#f6b7a6}.answer .big .ic.same{background:#ffffff1a;color:#dbe8e3}
+.answer p{margin:0 0 16px;color:#c3d8d0;font-size:15.5px;max-width:560px}
+.answer .conf{display:flex;align-items:center;gap:12px;font-size:12.5px;color:#a9c4ba}
+.answer .conf .bar{flex:1;max-width:240px;background:#ffffff1a;height:7px}.answer .conf .bar span{background:var(--mint)}
+.answer .honest{margin-top:12px;font-size:12px;color:#8fb0a5}
+.calc{padding:24px;color:var(--ink)}
+.calc h2{font-size:18px;margin:0 0 14px;letter-spacing:-.3px}
+.presets{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.presets button{border:1px solid var(--line);background:#fff;border-radius:9px;padding:7px 11px;font-size:12.5px;font-weight:600;color:#405a5e}
+.presets button[aria-pressed=true]{border-color:var(--green);background:#e9f5f0;color:var(--green-2)}
+.gal-field{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px;color:var(--muted);margin-bottom:8px}
+.gal-input{display:flex;align-items:center;gap:6px}
+.gal-input input{width:84px;font:600 16px system-ui;padding:7px 9px;border:1px solid #d6e1de;border-radius:9px;text-align:right;color:var(--ink)}
+.gal-input b{font-size:12.5px;color:var(--muted);font-weight:500}
+.calc-rows{border-top:1px solid var(--line);margin-top:8px}
+.calc-row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.calc-row b{font-size:20px;font-variant-numeric:tabular-nums;letter-spacing:-.4px}
+.calc-row.total b{font-size:24px}
+.calc-row .sv{color:#1f7a4f}.calc-row .ls{color:var(--red)}
+.fine{font-size:11.5px;color:var(--muted);margin:10px 0 0;line-height:1.5}
+.home-low{padding-top:44px}
+.price.pick{cursor:pointer;transition:border-color .15s,box-shadow .15s}.price.pick:hover{border-color:#c9dbd5}
+.price.pick[aria-pressed=true]{border-color:var(--green);box-shadow:0 0 0 3px #11796b1f}
+.price .nx{font-size:12.5px;margin-top:6px;color:var(--muted)}
+.key .dash{width:16px;border-top:2.5px dashed #7d9295;margin-left:8px}
+.teaser{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 24px;margin-top:18px;text-decoration:none;flex-wrap:wrap}
+.teaser p{margin:4px 0 0;color:var(--muted);font-size:14px;max-width:700px}.teaser:hover{border-color:#c9dbd5}
+@media(max-width:1020px){.home-grid{grid-template-columns:1fr}.hero .wrap{grid-template-columns:1fr;gap:36px}.stage-card{margin:0 auto}.ocr,.model,.api{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}.step:after{display:none}}
+@media(max-width:640px){.home-top h1{font-size:32px}.answer{padding:20px}.answer .big{font-size:30px}.fuel-pick button{padding:8px 11px;font-size:13px}.tabs a{padding:7px 9px;font-size:12.5px}.brand span{display:none}.wrap{padding:0 16px}h1{font-size:33px;letter-spacing:-1px}.lede{font-size:15.5px}.kpis{gap:8px}.kpi{padding:10px}.kpi strong{font-size:19px}.kpi span{font-size:10.5px}.hero{padding:40px 0 48px}.prices,.summary{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.head h2{font-size:25px}.readout{grid-template-columns:1fr}.arrow{display:none}.chart{height:240px}.ep{grid-template-columns:auto 1fr}.ep .acts{grid-row:auto;grid-column:1/3}.top .wrap{gap:12px}.viewer .stage img{max-height:480px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.01s!important;animation-delay:0s!important}}
 </style>
 </head>
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="#"><svg viewBox="0 0 40 44" aria-hidden="true"><path d="m20 2 17 10v20L20 42 3 32V12Z" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="m20 11 9 5v12l-9 5-9-5V16Z" fill="currentColor"/></svg><span>Gasolina GT</span></a>
-  <nav class="links" aria-label="Secciones"><a href="#ocr" data-i18n="nav_ocr"></a><a href="#precios" data-i18n="nav_prices"></a><a href="#modelo" data-i18n="nav_model"></a><a href="#arquitectura" data-i18n="nav_arch"></a><a href="#api">API</a></nav>
+  <nav class="tabs" aria-label="Vistas"><a href="#inicio" data-view="home" data-i18n="tab_home"></a><a href="#como-funciona" data-view="how" data-i18n="tab_how"></a></nav>
   <div class="lang" role="group" aria-label="Idioma / Language"><button data-lang="es" aria-pressed="true">ES</button><button data-lang="en" aria-pressed="false">EN</button></div>
   <a class="gh" href="https://github.com/ArielaMishaanCohen/gasolina-gt" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 8.4 22.9c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5Z"/></svg></a>
 </div></header>
 
-<section class="hero"><div class="wrap">
+<div id="view-home">
+<section class="home-top"><div class="wrap home-grid">
+  <div>
+    <p class="eyebrow" id="home-when"></p>
+    <h1 data-i18n="home_h1"></h1>
+    <div class="fuel-pick" id="fuel-pick" role="radiogroup"></div>
+    <div class="answer" id="answer"></div>
+  </div>
+  <div class="card calc">
+    <h2 data-i18n="calc_h"></h2>
+    <div class="presets" id="presets"></div>
+    <label class="gal-field"><span data-i18n="gal_label"></span><span class="gal-input"><input type="number" id="gal" min="1" max="200" step="1" value="12" inputmode="decimal"><b data-i18n="gal_unit"></b></span></label>
+    <div class="calc-rows" id="calc"></div>
+    <p class="fine" id="calc-note"></p>
+  </div>
+</div></section>
+<section class="block home-low"><div class="wrap">
+  <div class="head"><div><h2 data-i18n="week_h"></h2><p id="week-p"></p></div></div>
+  <div class="prices" id="home-prices"></div>
+  <div class="card chart-card">
+    <div class="chart-top"><div><b id="trend-title"></b><div class="fine" data-i18n="trend_sub"></div></div><span class="key"><span class="l"></span><span data-i18n="key_mem"></span><span class="dash"></span><span data-i18n="key_next"></span></span></div>
+    <div class="chart" id="home-chart"></div>
+  </div>
+  <a class="card teaser" href="#como-funciona"><div><b data-i18n="teaser_h"></b><p data-i18n="teaser_p"></p></div><span class="btn green" data-i18n="teaser_cta"></span></a>
+</div></section>
+</div>
+<div id="view-how" hidden>
+<section class="hero" id="como-funciona"><div class="wrap">
   <div>
     <p class="eyebrow" data-i18n="eyebrow"></p>
     <h1 data-i18n="h1"></h1>
@@ -208,6 +279,7 @@ footer a{color:#cfe5dc}
   </div>
 </div></section>
 
+<nav class="subnav"><div class="wrap"><a href="#ocr" data-i18n="nav_ocr"></a><a href="#precios" data-i18n="nav_prices"></a><a href="#modelo" data-i18n="nav_model"></a><a href="#arquitectura" data-i18n="nav_arch"></a><a href="#api">API</a></div></nav>
 <main>
 <section class="block" id="ocr"><div class="wrap">
   <div class="head"><div><div class="kicker" data-i18n="ocr_k"></div><h2 data-i18n="ocr_h"></h2><p data-i18n="ocr_p"></p></div></div>
@@ -270,6 +342,7 @@ footer a{color:#cfe5dc}
   <div class="card api"><div id="eps"></div><div class="out"><div class="out-h"><code id="out-url" data-i18n="pick"></code><span class="pill" id="out-st">—</span></div><pre id="out" tabindex="0" data-i18n="press"></pre></div></div>
 </div></section>
 </main>
+</div>
 
 <footer><div class="wrap">
   <div><strong style="color:#fff">Gasolina GT</strong><br><span data-i18n="credits"></span></div>
@@ -282,9 +355,21 @@ footer a{color:#cfe5dc}
 'use strict';
 const $=id=>document.getElementById(id);
 const T={
-es:{nav_ocr:'Cómo lee',nav_prices:'Precios',nav_model:'Modelo',nav_arch:'Arquitectura',
-eyebrow:'Visión por computadora · MLOps · Guatemala',
-h1:'¿Sube o baja la gasolina la próxima semana?',
+es:{tab_home:'Precios hoy',tab_how:'Cómo funciona',
+home_when:'Guatemala · precios de la semana del {d}',home_h1:'¿Lleno el tanque hoy o espero?',
+ans_lab:'Recomendación para {f}',wait:'Espera, si puedes',fill:'Llena hoy',same:'Da igual',
+ans_baja:'El modelo cree que el precio del {f} bajará la próxima semana.',ans_sube:'El modelo cree que el precio del {f} subirá la próxima semana.',ans_se_mantiene:'El modelo cree que el precio del {f} se mantendrá la próxima semana.',
+conf:'{p} de probabilidad',honest:'En las semanas de prueba acertó {a} de cada 10 veces. Úsalo como una pista, no como una garantía.',
+calc_h:'¿Cuánto me cuesta llenar?',gal_label:'Galones',gal_unit:'gal',moto:'Moto',car:'Carro',pickup:'Pickup',
+today:'Hoy',nextw:'Si esperas (estimado)',diff_save:'Ahorrarías',diff_lose:'Pagarías de más',diff_same:'Diferencia',
+calc_note:'Precio leído en bomba el {d}. La estimación usa el cambio típico de las semanas en que el {f} {dir}: Q{q} por galón.',
+dir_baja:'bajó',dir_sube:'subió',dir_se_mantiene:'se mantuvo',
+week_h:'Precios de esta semana',week_p:'Toca un combustible para ver su tendencia y la recomendación.',next_lbl:'Próxima semana: {a} {d}',
+trend_t:'Tendencia del {f}',trend_sub:'Últimos 6 meses · referencia oficial del MEM',key_next:'próxima semana',
+teaser_h:'¿De dónde salen estos precios?',teaser_p:'Una máquina lee fotos de bombas de gasolina con OCR y un modelo aprende de 2 años de precios oficiales. Mira las fotos, los aciertos del modelo y la API.',teaser_cta:'Cómo funciona →',
+nav_ocr:'Cómo lee',nav_prices:'Precios',nav_model:'Modelo',nav_arch:'Arquitectura',
+eyebrow:'Cómo funciona · visión por computadora · MLOps',
+h1:'Una máquina que lee bombas de gasolina',
 lede:'Una máquina lee fotos de bombas de gasolina, convierte los números en una serie de precios y un modelo predice hacia dónde va el precio del súper, la regular y el diésel.',
 k_fotos:'fotos reales leídas con OCR',k_ocr:'de los precios leídos correctamente',k_model:'aciertos del modelo, contra 50 % de la línea base',
 cta_ocr:'Ver cómo lee las fotos ↓',cta_api:'Probar la API',loading:'Cargando…',replay:'↻ Repetir',
@@ -316,9 +401,21 @@ pick:'Elige una consulta',press:'Pulsa «Probar» para ver la respuesta.',try:'P
 e1:'Estado del servicio y de cada tabla',e2:'Último precio por combustible',e3:'Histórico con filtros y paginación',e4:'Dirección de la semana siguiente',e5:'Predicción contra la realidad en la prueba',e6:'Lo que leyó el OCR en cada foto',
 credits:'Proyecto final de ML Engineering (UVG, 2026) · Alina Carias, Marcos Diaz, Daniel Machic, Ignacio Mendez, Ariela Mishaan y Diego Soto.',
 snapshot:'Datos: instantánea de la capa Oro del {d}',err:'No se pudieron cargar algunos datos.'},
-en:{nav_ocr:'How it reads',nav_prices:'Prices',nav_model:'Model',nav_arch:'Architecture',
-eyebrow:'Computer vision · MLOps · Guatemala',
-h1:'Will gas prices go up or down next week?',
+en:{tab_home:'Prices today',tab_how:'How it works',
+home_when:'Guatemala · prices for the week of {d}',home_h1:'Fill up today or wait?',
+ans_lab:'Recommendation for {f}',wait:'Wait if you can',fill:'Fill up today',same:'No rush',
+ans_baja:'The model expects {f} prices to go down next week.',ans_sube:'The model expects {f} prices to go up next week.',ans_se_mantiene:'The model expects {f} prices to stay flat next week.',
+conf:'{p} probability',honest:'On the test weeks it was right {a} out of 10 times. Treat it as a hint, not a guarantee.',
+calc_h:'How much will a fill-up cost?',gal_label:'Gallons',gal_unit:'gal',moto:'Motorbike',car:'Car',pickup:'Pickup',
+today:'Today',nextw:'If you wait (estimate)',diff_save:'You would save',diff_lose:'You would pay extra',diff_same:'Difference',
+calc_note:'Pump price read on {d}. The estimate uses the typical change in weeks when {f} {dir}: Q{q} per gallon.',
+dir_baja:'went down',dir_sube:'went up',dir_se_mantiene:'stayed flat',
+week_h:'This week’s prices',week_p:'Tap a fuel to see its trend and the recommendation.',next_lbl:'Next week: {a} {d}',
+trend_t:'{f} trend',trend_sub:'Last 6 months · official MEM reference',key_next:'next week',
+teaser_h:'Where do these prices come from?',teaser_p:'A machine reads photos of gas pumps with OCR and a model learns from 2 years of official prices. See the photos, how often the model is right, and the API.',teaser_cta:'How it works →',
+nav_ocr:'How it reads',nav_prices:'Prices',nav_model:'Model',nav_arch:'Architecture',
+eyebrow:'How it works · computer vision · MLOps',
+h1:'A machine that reads gas pumps',
 lede:'A machine reads photos of gas pumps, turns the numbers into a weekly price series, and a model predicts where premium, regular and diesel prices are heading.',
 k_fotos:'real photos read with OCR',k_ocr:'of prices read correctly',k_model:'model accuracy, vs. 50% for the baseline',
 cta_ocr:'See how it reads photos ↓',cta_api:'Try the API',loading:'Loading…',replay:'↻ Replay',
@@ -361,7 +458,7 @@ const q2=v=>Number(v).toLocaleString(loc(),{minimumFractionDigits:2,maximumFract
 const pct=(v,d=0)=>`${(Number(v)*100).toLocaleString(loc(),{maximumFractionDigits:d,minimumFractionDigits:d})}${lang==='es'?' %':'%'}`;
 const secs=ms=>(ms/1000).toLocaleString(loc(),{maximumFractionDigits:1});
 const fuelTag=c=>`<span class="fuel" style="--c:${COLOR[c]}"><i></i>${t(c)}</span>`;
-const S={health:null,current:[],hist:[],pred:[],metrics:null,bt:null,fotos:[],sel:0,hero:null,weeks:26,vis:new Set(FUELS)};
+const S={health:null,current:[],hist:[],pred:[],metrics:null,bt:null,fotos:[],sel:0,hero:null,weeks:26,vis:new Set(FUELS),fuel:'super',gal:12};
 async function api(p){const r=await fetch(p,{headers:{Accept:'application/json'}});if(!r.ok)throw new Error(r.status);return r.json();}
 function toast(m){$('toast').textContent=m;$('toast').hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>$('toast').hidden=true,3500);}
 
@@ -479,18 +576,87 @@ $('eps').addEventListener('click',async e=>{const b=e.target.closest('button');i
   document.querySelectorAll('.ep').forEach(r=>r.classList.toggle('on',r===row));$('out-url').textContent='GET '+url;$('out-st').className='pill';$('out-st').textContent='…';
   const t0=performance.now();try{const r=await fetch(p);const j=await r.json();$('out-st').className='pill '+(r.ok?'ok':'bad');$('out-st').textContent=`HTTP ${r.status} · ${Math.round(performance.now()-t0)} ms`;
     let txt=JSON.stringify(j,null,2);if(txt.length>6000)txt=txt.slice(0,6000)+'\n…';$('out').textContent=txt;}catch(err){$('out-st').className='pill bad';$('out-st').textContent='Error';$('out').textContent=String(err);}});
-function renderAll(){renderHero();renderOcrStats();renderThumbs();renderGallery();renderPrices();renderLegend();drawChart();renderModel();renderEps();
+
+/* ---------- vista de inicio: herramienta */
+const PRESETS=[['moto',3],['car',12],['pickup',20]];
+const VERDICT={baja:['wait','↘'],sube:['fill','↗'],se_mantiene:['same','→']};
+function typical(c,dir){
+  const seen=new Set(),v=[];
+  S.hist.forEach(r=>{if(r.combustible!==c||r.direccion!==dir||r.dif_q==null)return;const k=day(r.semana_inicio);if(seen.has(k))return;seen.add(k);v.push(Math.abs(r.dif_q));});
+  if(!v.length)return 0;v.sort((a,b)=>a-b);return v[Math.floor(v.length/2)];
+}
+function renderHome(){
+  const c=S.fuel,p=S.pred.find(x=>x.combustible===c),cur=S.current.find(x=>x.combustible===c);
+  if(S.current.length)$('home-when').textContent=t('home_when',{d:fdate(S.current[0].semana_inicio,{day:'numeric',month:'long',year:'numeric'})});
+  $('fuel-pick').innerHTML=FUELS.map(f=>`<button role="radio" aria-checked="${f===c}" data-f="${f}" style="--c:${COLOR[f]}"><i></i>${t(f)}</button>`).join('');
+  if(p){const [k,ic]=VERDICT[p.prediccion]||['same','→'];const acc=S.metrics?Math.round(S.metrics.accuracy_modelo*10):null;
+    $('answer').innerHTML=`<div class="lab">${t('ans_lab',{f:t(c)})}</div><div class="big"><span class="ic ${k}">${ic}</span>${t(k)}</div><p>${t('ans_'+p.prediccion,{f:t(c).toLowerCase()})}</p><div class="conf"><div class="bar"><span style="width:${p.probabilidad*100}%"></span></div>${t('conf',{p:pct(p.probabilidad)})}</div>${acc!=null?`<div class="honest">${t('honest',{a:acc})}</div>`:''}`;}
+  $('presets').innerHTML=PRESETS.map(([k,g])=>`<button data-g="${g}" aria-pressed="${S.gal===g}">${t(k)} · ${g} ${t('gal_unit')}</button>`).join('');
+  if($('gal')!==document.activeElement)$('gal').value=S.gal;
+  if(cur&&p){const g=S.gal,price=cur.precio_promedio,dq=typical(c,p.prediccion),sign=p.prediccion==='baja'?-1:p.prediccion==='sube'?1:0;
+    const hoy=price*g,luego=(price+sign*dq)*g,dif=luego-hoy;
+    const lab=dif<-.004?t('diff_save'):dif>.004?t('diff_lose'):t('diff_same');
+    $('calc').innerHTML=`<div class="calc-row total"><span>${t('today')}</span><b>Q${q2(hoy)}</b></div><div class="calc-row"><span>${t('nextw')}</span><b>≈ Q${q2(luego)}</b></div><div class="calc-row"><span>${lab}</span><b class="${dif<0?'sv':dif>0?'ls':''}">≈ Q${q2(Math.abs(dif))}</b></div>`;
+    $('calc-note').textContent=t('calc_note',{d:fdate(cur.semana_inicio),f:t(c).toLowerCase(),dir:t('dir_'+p.prediccion),q:q2(dq)});}
+  $('week-p').textContent=t('week_p');
+  $('home-prices').innerHTML=FUELS.map(f=>{const x=S.current.find(y=>y.combustible===f);if(!x)return '';const pr=S.pred.find(y=>y.combustible===f);
+    const serie=S.hist.filter(y=>y.combustible===f&&y.fuente===x.fuente).sort((a,b)=>day(a.semana_inicio).localeCompare(day(b.semana_inicio)));
+    const prev=serie.filter(y=>day(y.semana_inicio)<day(x.semana_inicio)).at(-1);const d=prev?x.precio_promedio-prev.precio_promedio:null;
+    return `<div class="card price pick" role="button" tabindex="0" aria-pressed="${f===c}" data-f="${f}">${fuelTag(f)}<div class="v"><small>Q</small>${q2(x.precio_promedio)}</div><div class="u">${t('per_gal',{d:fdate(x.semana_inicio)})}</div>${d!=null?`<div class="d ${d<0?'down':d>0?'up':''}">${d<0?'↘ −':d>0?'↗ +':''}Q${q2(Math.abs(d))} ${t('vs',{d:fdate(prev.semana_inicio,{day:'numeric',month:'short'})})}</div>`:''}${pr?`<div class="nx">${t('next_lbl',{a:ARROW[pr.prediccion],d:t(pr.prediccion)})} · ${pct(pr.probabilidad)}</div>`:''}</div>`;}).join('');
+  $('trend-title').textContent=t('trend_t',{f:lang==='es'?t(c).toLowerCase():t(c)});
+  drawHomeChart();
+}
+function drawHomeChart(){
+  const c=S.fuel,box=$('home-chart');if(!box.clientWidth)return;
+  const mem=S.hist.filter(r=>r.combustible===c&&r.fuente==='mem').sort((a,b)=>ts(a.semana_inicio)-ts(b.semana_inicio));if(!mem.length){box.innerHTML='';return;}
+  const last=ts(mem.at(-1).semana_inicio),rows=mem.filter(r=>ts(r.semana_inicio)>=last-25*7*864e5);
+  const p=S.pred.find(x=>x.combustible===c);const sign=p?(p.prediccion==='baja'?-1:p.prediccion==='sube'?1:0):0;
+  const nx=p?{t:ts(p.semana),v:rows.at(-1).precio_promedio+sign*typical(c,p.prediccion)}:null;
+  const W=Math.max(300,box.clientWidth),H=box.clientHeight||300,L=34,R=60,TP=14,B=28;
+  const tt=rows.map(r=>ts(r.semana_inicio)).concat(nx?[nx.t]:[]),vs=rows.map(r=>r.precio_promedio).concat(nx?[nx.v]:[]);
+  const t0=Math.min(...tt),t1=Math.max(...tt),lo=Math.floor(Math.min(...vs)-1),hi=Math.ceil(Math.max(...vs)+1);
+  const X=v=>L+(v-t0)/(t1-t0||1)*(W-L-R),Y=v=>TP+(hi-v)/(hi-lo)*(H-TP-B);
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(t('trend_t',{f:t(c)}))}"><defs><linearGradient id="hg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="${COLOR[c]}" stop-opacity=".18"/><stop offset="1" stop-color="${COLOR[c]}" stop-opacity="0"/></linearGradient></defs>`;
+  for(let i=0;i<=4;i++){const v=lo+(hi-lo)*i/4;s+=`<line class="grid" x1="${L}" x2="${W-R}" y1="${Y(v)}" y2="${Y(v)}"/><text x="${L-8}" y="${Y(v)+4}" text-anchor="end">${v.toFixed(0)}</text>`;}
+  const nl=W<520?3:5;for(let i=0;i<nl;i++){const v=t0+(t1-t0)*i/(nl-1);s+=`<text x="${X(v)}" y="${H-6}" text-anchor="${i?i===nl-1?'end':'middle':'start'}">${new Date(v).toLocaleDateString(loc(),{day:'numeric',month:'short',timeZone:'UTC'})}</text>`;}
+  const d=rows.map((r,i)=>`${i?'L':'M'}${X(ts(r.semana_inicio)).toFixed(1)},${Y(r.precio_promedio).toFixed(1)}`).join(' ');
+  const lastR=rows.at(-1);
+  s+=`<path d="${d}" fill="none" stroke="${COLOR[c]}" stroke-width="2.6" stroke-linejoin="round"/>`;
+  rows.forEach(r=>{s+=`<circle cx="${X(ts(r.semana_inicio))}" cy="${Y(r.precio_promedio)}" r="7" fill="transparent"><title>${fdate(r.semana_inicio)} · Q${q2(r.precio_promedio)}</title></circle>`;});
+  s+=`<circle cx="${X(ts(lastR.semana_inicio))}" cy="${Y(lastR.precio_promedio)}" r="4.5" fill="${COLOR[c]}" stroke="#fff" stroke-width="2"/>`;
+  if(nx){s+=`<path d="M${X(ts(lastR.semana_inicio))},${Y(lastR.precio_promedio)} L${X(nx.t)},${Y(nx.v)}" stroke="${COLOR[c]}" stroke-width="2.4" stroke-dasharray="5 5" fill="none"/><circle cx="${X(nx.t)}" cy="${Y(nx.v)}" r="5" fill="#fff" stroke="${COLOR[c]}" stroke-width="2.4"/><text x="${X(nx.t)+9}" y="${Y(nx.v)+4}" style="font-weight:700;fill:${COLOR[c]}">${ARROW[p.prediccion]} ${esc(t(p.prediccion))}</text>`;}
+  box.innerHTML=s+'</svg>';
+}
+$('fuel-pick').addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(b){S.fuel=b.dataset.f;renderHome();}});
+$('home-prices').addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(b){S.fuel=b.dataset.f;renderHome();window.scrollTo({top:0,behavior:'smooth'});}});
+$('home-prices').addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.dataset.f){e.preventDefault();S.fuel=e.target.dataset.f;renderHome();}});
+$('presets').addEventListener('click',e=>{const b=e.target.closest('[data-g]');if(b){S.gal=Number(b.dataset.g);renderHome();}});
+$('gal').addEventListener('input',e=>{const g=Number(e.target.value);if(g>0&&g<=200){S.gal=g;renderHome();}});
+
+/* ---------- pestañas */
+const HOW=['como-funciona','ocr','precios','modelo','arquitectura','api'];
+let view=null;
+function route(){
+  const h=location.hash.slice(1),nv=HOW.includes(h)?'how':'home',changed=nv!==view;view=nv;
+  $('view-home').hidden=nv!=='home';$('view-how').hidden=nv!=='how';
+  document.querySelectorAll('.tabs a').forEach(a=>{if(a.dataset.view===nv)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
+  if(nv==='how'){if(changed){drawChart();renderHero();}const el=$(h);if(h!=='como-funciona'&&el)requestAnimationFrame(()=>el.scrollIntoView());else if(changed)window.scrollTo(0,0);}
+  else{if(changed)window.scrollTo(0,0);drawHomeChart();}
+}
+addEventListener('hashchange',route);
+
+function renderAll(){renderHome();renderHero();renderOcrStats();renderThumbs();renderGallery();renderPrices();renderLegend();drawChart();renderModel();renderEps();
   $('snap').textContent=t('snapshot',{d:fdate(S.health?.instantanea,{day:'numeric',month:'long',year:'numeric'})});}
-let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(drawChart,150);});
+let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{drawChart();drawHomeChart();},150);});
 async function load(){
   const jobs={health:api('/health'),current:api('/precios/actual'),hist:api('/precios?limit=1000'),pred:api('/prediccion'),metrics:api('/modelo/metricas'),bt:api('/modelo/backtest'),fotos:api('/fotos?detalle=true')};
   const res=await Promise.allSettled(Object.values(jobs));const k=Object.keys(jobs);let fail=false;
   res.forEach((r,i)=>{if(r.status!=='fulfilled'){fail=true;return;}const v=r.value;
     ({health:()=>S.health=v,current:()=>S.current=v.precios||[],hist:()=>S.hist=v.datos||[],pred:()=>S.pred=v.predicciones||[],metrics:()=>S.metrics=v,bt:()=>S.bt=v,fotos:()=>S.fotos=(v.fotos||[]).sort((a,b)=>day(a.fecha).localeCompare(day(b.fecha)))})[k[i]]();});
   if(S.fotos.length){const cand=S.fotos.filter(f=>f.precios.length>=3&&Object.keys(f.reales).length===3&&nOk(f)===3);S.hero=cand.at(-1)||S.fotos.at(-1);S.sel=S.fotos.indexOf(S.hero);}
-  applyLang();if(fail)toast(t('err'));
+  applyLang();route();if(fail)toast(t('err'));
 }
-applyLang();load();
+route();applyLang();load();
 </script>
 </body>
 </html>
